@@ -1,0 +1,16 @@
+[
+  { "name": "john", "age": 22, "city": "Delhi" },
+  { "name": "harry", "age": 21, "city": "London" },
+  { "name": "ron", "age": 41, "city": "NY" },
+  { "name": "dev", "age": 45, "city": "Delhi" },
+  { "name": "rony", "age": 49, "city": "Mumbai" },
+  { "name": "ronak", "age": 23, "city": "Gurgram" },
+  { "name": "jay", "age": 32, "city": "aagra" },
+  { "name": "rohit", "age": 36, "city": "new delhi" },
+  { "name": "sunny", "age": 45, "city": "indore" },
+  { "name": "goldi", "age": 21, "city": "nagar" },
+  { "name": "aashish", "age": 45, "city": "badlapur" },
+  { "name": "muskan", "age": 43, "city": "rajpur" },
+  { "name": "priya", "age": 31, "city": "bhopal" },
+  { "name": "pooja", "age": 45, "city": "seehore" }
+]

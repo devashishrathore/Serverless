@@ -1,0 +1,75 @@
+service: serverlessproject
+
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+plugins:
+ - serverless-aws-documentation
+
+functions:
+  getUsers:
+    handler: lambdas/getUsers.handler
+    events:
+      - http:
+    path: api/users/{limit}
+    method: GET
+    cors: true
+    documentation:
+            summary: Retrieve a list of users
+            description: |
+              This API returns a list of users. You can use the `limit` and `offset` query parameters to control the number of results returned and the starting position in the list.
+            requestParameters:
+              limit:
+                type: integer
+                minimum: 1
+                maximum: 100
+                default: 10
+                description: The maximum number of results to return
+              offset:
+                type: integer
+                minimum: 0
+                default: 0
+                description: The starting position in the list of results
+            responses:
+              '200':
+                description: A list of users
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/definitions/User'
+              '400':
+                description: Bad request
+                schema:
+                  $ref: '#/definitions/Error'
+              '404':
+                description: Not Found
+                schema:
+                  $ref: '#/definitions/Error'
+              '500':
+                description: Internal Sever Error
+                schema:
+                  $ref: '#/definitions/Error'
+    definitions:
+      User:
+        type: object
+        properties:
+          name:
+            type: string
+          age:
+            type: number
+          city:
+            type: string
+        required:
+          - name
+          - age
+          - city
+      Error:
+        type: object
+        properties:
+          message:
+            type: string
+        required:
+          - message
